@@ -1,0 +1,13 @@
+include includes/header.pug
+
+div
+   h2='filtered page'
+   br
+   |
+   div
+     each users in usersdata
+       div
+         h3= users.firstname
+         h4= users.lastname
+         
+include includes/footer.pug
