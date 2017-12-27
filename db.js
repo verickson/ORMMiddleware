@@ -1,4 +1,4 @@
-create database ORM;
+create database ORM2;
 
 create table test_user (
     id        serial primary key,
