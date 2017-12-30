@@ -4,13 +4,13 @@ var orm = require('./orm-lite');
 var pg = require('pg');
 
 var test_user = {
-  id: 'STRING',
+  //id: 'STRING',
   firstname: 'STRING',
   lastname: 'STRING'
 };
 
-//linnking to the hat db that we already created
-var Person = new orm('users','postgres://root:root@localhost/ORM2', test_user);
+//linking to the hat db that we already created
+var Person = new orm('users','postgres://root:root@localhost/orm', test_user);
 app.use(express.urlencoded());
 app.set('view engine', 'pug');
 
@@ -38,6 +38,6 @@ app.get('*', function(req, res){
 });
 
 //server location
-var server = app.listen(4333, function(){
-  console.log('open http://localhost:4333 in the browser');
+var server = app.listen(4332, function(){
+  console.log('open http://localhost:4332 in the browser');
 });
