@@ -20,28 +20,29 @@ class Ormdata{
   insertIntoTable(values, callback){
     var tableRef = this.table;
     this.table.sync().then(function(){
-      tableRef.create({
-        firstname: 'jackson',
-        lastname: 'pollock'
-      });
-      tableRef.create({
-        firstname: 'sylvia',
-        lastname: 'plath'
-      });
-      tableRef.create({
-        firstname: 'daenerys',
-        lastname: 'targaryen'
-      });
+      // tableRef.create({
+      //   firstname: 'jackson',
+      //   lastname: 'pollock'
+      // });
+      // tableRef.create({
+      //   firstname: 'sylvia',
+      //   lastname: 'plath'
+      // });
+      // tableRef.create({
+      //   firstname: 'daenerys',
+      //   lastname: 'targaryen'
+      // });
+      tableRef.create(values);
       callback();
     });
   }
   getAll(callback){
     this.table.findAll().then(function(rows) {
-      var all_users = [];
+      var data = [];
       for(var i = 0; i < rows.length; i++) {
-        all_users.push(rows[i].dataValues);
+        data.push(rows[i].dataValues);
       }
-      return callback(all_users);
+      return callback(data);
     });
   }
   findById(id, callback){
@@ -50,11 +51,11 @@ class Ormdata{
         id: id
       }
     }).then(function(rows) {
-      var all_users = [];
+      var data = [];
       for(var i = 0; i < rows.length; i++) {
-        all_users.push(rows[i].dataValues);
+        data.push(rows[i].dataValues);
       }
-       return callback(all_users);
+       return callback(data);
     });
   }
 }
